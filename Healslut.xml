@@ -1,0 +1,904 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder FFXIVJobFilterEnabled="True" FFXIVJobFilter="554193387552" Id="52caab75-5ce9-4597-aaa5-7fdbdc021571" Name="Healslut" Enabled="false">
+    <Folders>
+      <Folder Id="3356e37e-b47d-4bc0-b91a-3f985da29f13" Name="0 DPS slut" Enabled="false">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="0 DPS slut (damage insults)" Id="66bf8ca3-2eb7-4c5b-b6ee-01516455ffd7" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="dpsRnd" VariableExpression="random(1,100)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="You're gonna hurt yourself, silly." TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:dpsRnd}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="Dummies like you don't DPS." TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:dpsRnd}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:dpsRnd}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="Just focus on healing!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:dpsRnd}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:dpsRnd}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="0 DPS slut (punish DPSing through higher opacity overlays)" Id="9efafb70-ba6e-447e-a594-3bc536634b4c" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning">
+            <Actions>
+              <Action OrderNumber="0" OBSEndPoint="" VariableOp="SetNumeric" VariableName="opacity" VariableExpression="${var:opacity} + 5" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="opacity" VariableExpression="${var:opacity} - 5" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="20000" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetNumeric" VariableName="opacity" VariableExpression="max(${var:opacity}, 5)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="0 DPS slut (reduce opacity by healing)" Id="af18c352-f26d-4fcc-8513-1d9c58907526" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="opacity" VariableExpression="${var:opacity} - 7" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetNumeric" VariableName="opacity" VariableExpression="max(${var:opacity}, 5)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="false" ExpressionL="${2}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${_incombat}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="aefbc535-72a2-4512-be2e-93df5bb41a0e" Name="Suggestions" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="false" Name="Image suggestions (modified version of /u/TwilightsHerald's script)" Id="6fb4a473-246b-45c6-b926-cf05e35b3ae8" RegularExpression="You (cast|use|begin)" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny">
+            <Actions>
+              <Action OrderNumber="1" AuraImageMode="StretchImage" AuraName="Spiral" AuraImage="C:\HS\Background Spiral.gif" AuraWIniExpression="1920" AuraHIniExpression="1080" AuraOIniExpression="5" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Aura" RefireInterrupt="True" />
+              <Action OrderNumber="2" PlaySoundFileExpression="C:\HS\Loop.mp3" PlaySoundVolumeExpression="20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="PlaySound" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" AuraName="Script 1" AuraImage="C:\HS\Script 1.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" AuraOp="DeactivateAura" AuraName="Script 1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="6" AuraName="Script 2" AuraImage="C:\HS\Script 2.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" AuraOp="DeactivateAura" AuraName="Script 2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="8" AuraName="Script 3" AuraImage="C:\HS\Script 3.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" AuraOp="DeactivateAura" AuraName="Script 3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="10" AuraName="Script 4" AuraImage="C:\HS\Script 4.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" AuraOp="DeactivateAura" AuraName="Script 4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="12" AuraName="Script 5" AuraImage="C:\HS\Script 5.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" AuraOp="DeactivateAura" AuraName="Script 5" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="14" AuraName="Script 6" AuraImage="C:\HS\Script 6.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" AuraOp="DeactivateAura" AuraName="Script 6" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="16" AuraName="Script 7" AuraImage="C:\HS\Script 7.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" AuraOp="DeactivateAura" AuraName="Script 7" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="18" AuraName="Script 8" AuraImage="C:\HS\Script 8.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="18" AuraOp="DeactivateAura" AuraName="Script 8" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="19" AuraName="Script 9" AuraImage="C:\HS\Script 9.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="20" AuraOp="DeactivateAura" AuraName="Script 9" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="21" AuraName="Script 10" AuraImage="C:\HS\Script 10.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="22" AuraOp="DeactivateAura" AuraName="Script 10" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="22" AuraName="Script 11" AuraImage="C:\HS\Script 11.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="23" AuraOp="DeactivateAura" AuraName="Script 11" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="24" AuraName="Script 12" AuraImage="C:\HS\Script 12.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="25" AuraOp="DeactivateAura" AuraName="Script 12" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="26" AuraName="Script 13" AuraImage="C:\HS\Script 13.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="27" AuraOp="DeactivateAura" AuraName="Script 13" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="28" AuraName="Script 14" AuraImage="C:\HS\Script 14.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="29" AuraOp="DeactivateAura" AuraName="Script 14" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="30" AuraName="Script 15" AuraImage="C:\HS\Script 15.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="31" AuraOp="DeactivateAura" AuraName="Script 15" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="33" AuraName="Script 16" AuraImage="C:\HS\Script 16.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="34" AuraOp="DeactivateAura" AuraName="Script 16" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="35" AuraName="Script 17" AuraImage="C:\HS\Script 17.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="36" AuraOp="DeactivateAura" AuraName="Script 17" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="37" AuraName="Script 18" AuraImage="C:\HS\Script 18.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="38" AuraOp="DeactivateAura" AuraName="Script 18" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="39" AuraName="Script 19" AuraImage="C:\HS\Script 19.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="40" AuraOp="DeactivateAura" AuraName="Script 19" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="41" AuraName="Script 20" AuraImage="C:\HS\Script 20.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="42" AuraOp="DeactivateAura" AuraName="Script 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="43" AuraName="Script 21" AuraImage="C:\HS\Script 21.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="44" AuraOp="DeactivateAura" AuraName="Script 21" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="45" AuraName="Script 22" AuraImage="C:\HS\Script 22.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="46" AuraOp="DeactivateAura" AuraName="Script 22" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="47" AuraName="Script 23" AuraImage="C:\HS\Script 23.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="48" AuraOp="DeactivateAura" AuraName="Script 23" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="49" AuraName="Script 24" AuraImage="C:\HS\Script 24.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="50" AuraOp="DeactivateAura" AuraName="Script 24" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="51" AuraName="Script 25" AuraImage="C:\HS\Script 25.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="52" AuraOp="DeactivateAura" AuraName="Script 25" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="53" AuraName="Script 26" AuraImage="C:\HS\Script 26.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="54" AuraOp="DeactivateAura" AuraName="Script 26" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="55" AuraName="Script 27" AuraImage="C:\HS\Script 27.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="56" AuraOp="DeactivateAura" AuraName="Script 27" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="57" AuraName="Script 28" AuraImage="C:\HS\Script 28.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="58" AuraOp="DeactivateAura" AuraName="Script 28" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="59" AuraName="Script 29" AuraImage="C:\HS\Script 29.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="60" AuraOp="DeactivateAura" AuraName="Script 29" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="61" AuraName="Script 30" AuraImage="C:\HS\Script 30.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="62" AuraOp="DeactivateAura" AuraName="Script 30" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="63" AuraName="Script 31" AuraImage="C:\HS\Script 31.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="64" AuraOp="DeactivateAura" AuraName="Script 31" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="65" AuraName="Script 32" AuraImage="C:\HS\Script 32.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="66" AuraOp="DeactivateAura" AuraName="Script 32" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="67" AuraName="Script 33" AuraImage="C:\HS\Script 33.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="68" AuraOp="DeactivateAura" AuraName="Script 33" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="69" AuraName="Script 34" AuraImage="C:\HS\Script 34.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="70" AuraOp="DeactivateAura" AuraName="Script 34" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="71" AuraName="Script 35" AuraImage="C:\HS\Script 35.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="72" AuraOp="DeactivateAura" AuraName="Script 35" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="73" AuraName="Script 36" AuraImage="C:\HS\Script 36.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="74" AuraOp="DeactivateAura" AuraName="Script 36" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="75" AuraName="Script 37" AuraImage="C:\HS\Script 37.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="76" AuraOp="DeactivateAura" AuraName="Script 37" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="77" AuraName="Script 38" AuraImage="C:\HS\Script 38.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="78" AuraOp="DeactivateAura" AuraName="Script 38" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="79" AuraName="Script 39" AuraImage="C:\HS\Script 39.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="80" AuraOp="DeactivateAura" AuraName="Script 39" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="81" AuraName="Script 40" AuraImage="C:\HS\Script 40.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="82" AuraOp="DeactivateAura" AuraName="Script 40" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="83" AuraName="Script 41" AuraImage="C:\HS\Script 41.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="84" AuraOp="DeactivateAura" AuraName="Script 41" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="85" AuraName="Script 42" AuraImage="C:\HS\Script 42.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="86" AuraOp="DeactivateAura" AuraName="Script 42" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="87" AuraName="Script 43" AuraImage="C:\HS\Script 43.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="88" AuraOp="DeactivateAura" AuraName="Script 43" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="89" AuraName="Script 44" AuraImage="C:\HS\Script 44.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="90" AuraOp="DeactivateAura" AuraName="Script 44" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="91" AuraName="Script 45" AuraImage="C:\HS\Script 45.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="92" AuraOp="DeactivateAura" AuraName="Script 45" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="93" AuraName="Script 46" AuraImage="C:\HS\Script 46.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="94" AuraOp="DeactivateAura" AuraName="Script 46" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="95" AuraName="Script 47" AuraImage="C:\HS\Script 47.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="96" AuraOp="DeactivateAura" AuraName="Script 47" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="97" AuraName="Script 48" AuraImage="C:\HS\Script 48.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="98" AuraOp="DeactivateAura" AuraName="Script 48" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="99" AuraName="Script 49" AuraImage="C:\HS\Script 49.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="100" AuraOp="DeactivateAura" AuraName="Script 49" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="101" AuraName="Script 50" AuraImage="C:\HS\Script 50.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="102" AuraOp="DeactivateAura" AuraName="Script 50" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="103" AuraName="Script 51" AuraImage="C:\HS\Script 51.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="104" AuraOp="DeactivateAura" AuraName="Script 51" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="105" AuraName="Script 52" AuraImage="C:\HS\Script 52.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="106" AuraOp="DeactivateAura" AuraName="Script 52" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="107" AuraName="Script 53" AuraImage="C:\HS\Script 53.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="108" AuraOp="DeactivateAura" AuraName="Script 53" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="109" AuraName="Script 54" AuraImage="C:\HS\Script 54.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="110" AuraOp="DeactivateAura" AuraName="Script 54" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="111" AuraName="Script 55" AuraImage="C:\HS\Script 55.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="112" AuraOp="DeactivateAura" AuraName="Script 55" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="113" AuraName="Script 56" AuraImage="C:\HS\Script 56.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="114" AuraOp="DeactivateAura" AuraName="Script 56" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="115" AuraName="Script 57" AuraImage="C:\HS\Script 57.png" AuraXIniExpression="326" AuraYIniExpression="372" AuraWIniExpression="1083" AuraHIniExpression="360" AuraOIniExpression="${var:opacity} + 20" AuraOTickExpression="${var:opacity} + 20" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="1" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="116" AuraOp="DeactivateAura" AuraName="Script 57" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" RefireInterrupt="True" />
+              <Action OrderNumber="117" AuraOp="DeactivateAura" AuraName="Spiral" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Aura" ExecutionDelayExpression="1500" />
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="Suggestions (based on /u/TwilightsHerald's script)" Id="1eb82f39-5b7b-49a2-94c3-0e7d016e9263" RegularExpression="You (cast|use|begin)" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Relax&#xD;&#xA;and&#xD;&#xA;Obey" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slave&#xD;&#xA;to the&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Good Girls Obey" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Obey&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Horny" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="14" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slut" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="16" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Obey" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="18" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="19" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="20" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="21" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="22" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="23" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Relax" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="24" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="25" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Don't&#xD;&#xA;Resist" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="26" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="27" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="You Are&#xD;&#xA;A Slave" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="28" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="29" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Good Girl" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="30" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="31" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Don't&#xD;&#xA;Look&#xD;&#xA;Away" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="32" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="33" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Good Girl" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="34" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="35" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="36" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="37" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="You Don't&#xD;&#xA;Want To&#xD;&#xA;Resist..." TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="38" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="39" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Serve&#xD;&#xA;Your&#xD;&#xA;Owner" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="40" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="41" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slave&#xD;&#xA;to the&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="42" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="43" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slave&#xD;&#xA;to your&#xD;&#xA;Pussy" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="44" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="45" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="SLAVE" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="46" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="47" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Submit&#xD;&#xA;to the&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="48" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="49" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Serving&#xD;&#xA;Makes You&#xD;&#xA;HORNY" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="50" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="51" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="52" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="53" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Horny Slut" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="54" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="55" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Helpless&#xD;&#xA;Slave" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="56" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="57" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Don't&#xD;&#xA;Resist" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="58" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="59" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Can't&#xD;&#xA;Resist" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="60" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="61" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Won't&#xD;&#xA;Resist" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="62" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="63" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="64" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="65" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="So Horny" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="66" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="67" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="OBEY" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="68" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="69" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slutty&#xD;&#xA;Clothes" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="70" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="71" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slutty&#xD;&#xA;Actions" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="72" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="73" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Shields&#xD;&#xA;Up" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="74" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="75" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Panties&#xD;&#xA;Down" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="76" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="77" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="No&#xD;&#xA;Resistance" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="78" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="79" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="HORNY" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="80" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="81" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="SLAVE" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="82" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="83" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Watch&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="84" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="85" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="You Are&#xD;&#xA;A Slave" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="86" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="87" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slave&#xD;&#xA;to the&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="88" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="89" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Slave&#xD;&#xA;to the&#xD;&#xA;Team" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="90" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="91" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Healing&#xD;&#xA;Makes you&#xD;&#xA;SUBMISSIVE" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="92" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="93" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Good Girl" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="94" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="95" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="So Horny" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="96" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="97" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Love&#xD;&#xA;being a&#xD;&#xA;SLAVE" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="98" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="99" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Love&#xD;&#xA;being a&#xD;&#xA;HEALSLUT" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="100" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="101" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Won't&#xD;&#xA;Resist" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="102" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="103" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Can't&#xD;&#xA;Resist" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="104" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="105" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Obeying&#xD;&#xA;The&#xD;&#xA;Spiral" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="106" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="107" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Horny Slut" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="108" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="109" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Good Girl" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="110" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="111" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="Obey" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="112" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="113" OBSEndPoint="" TextAuraEffect="Bold" TextAuraFontSize="48" TextAuraForeground="#FF80FF" TextAuraOutline="#400040" TextAuraName="Suggestion" TextAuraExpression="HEALSLUT" TextAuraXIniExpression="0" TextAuraYIniExpression="0" TextAuraWIniExpression="1920" TextAuraHIniExpression="1080" TextAuraOIniExpression="${var:opacity} + 20" TextAuraOTickExpression="${var:opacity} + 20" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="1">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="114" OBSEndPoint="" TextAuraOp="DeactivateAura" TextAuraFontSize="8.25" TextAuraName="Suggestion" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Commend" Id="9af2b1b5-ba55-4b8d-9de4-39c48748e2ae" RegularExpression="^00\|[^\|]*\|0839\|\|You received a player commendation" DebugLevel="Warning" RefirePeriodExpression="1">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="commends" VariableExpression="${var:commends} + 1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="1" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="End dungeon" Id="b20d848a-59a8-40e6-8c39-0e1f3b65385a" RegularExpression="^00\|.*\|0839\|.*(has ended\.|leaving the instance\.)" DebugLevel="Warning">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="inDungeon" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" AuraOp="DeactivateAura" AuraName="Spiral" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireRequeue="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetNumeric" VariableName="commends" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Start dungeon (EDIT SPIRAL PATH HERE)" Id="223c968d-f27f-4cfa-8d2e-2c9019d06d8b" RegularExpression="^00\|.*\|0839\|.*has begun\." DebugLevel="Warning">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="inDungeon" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetNumeric" VariableName="opacity" VariableExpression="5" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" AuraImageMode="StretchImage" AuraName="Spiral" AuraImage="C:\HS\Background Spiral.gif" AuraWIniExpression="1920" AuraHIniExpression="1080" AuraOIniExpression="${var:opacity}" AuraOTickExpression="${var:opacity}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireRequeue="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Heal tank" Id="4bc3a123-da1c-45fc-9ada-34ca473314c5" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="healRnd" VariableExpression="random(1,60)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Good slut, serve your tank!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healRnd}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="Good girl!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healRnd}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:healRnd}" ExpressionTypeL="Numeric" ExpressionR="16" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="Pleasure your tank!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healRnd}" ExpressionTypeL="Numeric" ExpressionR="16" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:healRnd}" ExpressionTypeL="Numeric" ExpressionR="25" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+          <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${2}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].job}" ExpressionTypeL="String" ExpressionR="GLA|PLD|MRD|WAR|GNB|DRK" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Heal self" Id="88c7d09a-daff-428b-906d-cfbb93d1b6b0" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|([^\|]*)\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="selfhealRnd" VariableExpression="random(1,100)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Stop playing with yourself!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:selfhealRnd}" ExpressionTypeL="Numeric" ExpressionR="40" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="What are you doing!?" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:selfhealRnd}" ExpressionTypeL="Numeric" ExpressionR="40" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:selfhealRnd}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+          <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${3}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${2}" ExpressionTypeL="String" ExpressionR="Sprint" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Commend comment" Id="11792ab3-e408-41cf-823e-fbe28886eb89" RegularExpression="^00\|.*\|0839\|.*(has ended\.|leaving the instance\.)" DebugLevel="Warning">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" UseTTSTextExpression="No commendations? You are so useless." TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="1500">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:commends}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="String" ConditionType="NumericLess" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Only one commendation? Try harder, slut." TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="2">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:commends}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="String" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="Two commendations? That's almost acceptable." TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="2">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:commends}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="String" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="It looks like you did alright. Good girl." TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="2">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:commends}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="You served your team well. Good girl." TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="2">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:commends}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericGreater" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Heal healer" Id="111238a3-bc78-4157-a920-5bf93d0aaed6" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="healHealRnd" VariableExpression="random(1,40)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Serve the better healer!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healHealRnd}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="Pleasure the better healer!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healHealRnd}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:healHealRnd}" ExpressionTypeL="Numeric" ExpressionR="16" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="Good girl!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healHealRnd}" ExpressionTypeL="Numeric" ExpressionR="16" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:healHealRnd}" ExpressionTypeL="Numeric" ExpressionR="25" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+          <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${2}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].job}" ExpressionTypeL="String" ExpressionR="SGE|CNJ|WHM|AST|SCH" ExpressionTypeR="String" ConditionType="RegexMatch" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="You died" Id="39c9c41d-8433-4114-8179-5a0e515a528f" RegularExpression="^00\|[^\|]*\|0B3A\|\|([^\|]*) (are|is) defeated by" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" UseTTSTextExpression="How are you this bad? Say sorry!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="You" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Heal dps" Id="688bc749-09e9-46e7-b306-9ce16627bace" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="healDpsRnd" VariableExpression="random(1,60)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Serve your DPS!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healDpsRnd}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="Pleasure your DPS!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healDpsRnd}" ExpressionTypeL="Numeric" ExpressionR="12" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:healDpsRnd}" ExpressionTypeL="Numeric" ExpressionR="16" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="Good girl!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:healDpsRnd}" ExpressionTypeL="Numeric" ExpressionR="16" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:healDpsRnd}" ExpressionTypeL="Numeric" ExpressionR="25" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+          <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${2}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].job}" ExpressionTypeL="String" ExpressionR="SGE|CNJ|WHM|AST|SCH" ExpressionTypeR="String" ConditionType="RegexNotMatch" />
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].job}" ExpressionTypeL="String" ExpressionR="GLA|PLD|MRD|WAR|GNB|DRK" ExpressionTypeR="String" ConditionType="RegexNotMatch" />
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Receive healing" Id="365667ed-02d2-4328-ac99-ad32f8ca5689" RegularExpression="^21\|[^\|]*\|[^\|]*\|([^\|]*)\|[^\|]*\|([^\|]*)\|[^\|]*\|([^\|]*)\|" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="behealedRnd" VariableExpression="random(1,100)" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Stop taking damage, you slut!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:behealedRnd}" ExpressionTypeL="Numeric" ExpressionR="40" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="Stop taking valuable heals!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:behealedRnd}" ExpressionTypeL="Numeric" ExpressionR="40" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:behealedRnd}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+          <ConditionSingle Enabled="true" ExpressionL="${1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${3}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${2}].level}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Death in party" Id="cab572d8-1b41-469f-bdc3-54c66d70727c" RegularExpression="^00\|[^\|]*\|(12BA|133A)\|\|([^\|]*) is defeated by" DebugLevel="Warning" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" UseTTSTextExpression="You dumb slut let someone die, apologize!" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${var:inDungeon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+          <ConditionSingle Enabled="false" ExpressionL="${_ffxivparty[${2}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+          <ConditionSingle Enabled="true" ExpressionL="${2}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
+        </Condition>
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
