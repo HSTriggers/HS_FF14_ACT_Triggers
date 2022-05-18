@@ -2,7 +2,7 @@
 
 First, I have to say that this is very much based on and inspired by /u/TwilightsHerald's post [here](https://old.reddit.com/r/HealSluts/comments/czui0n/ffxiv_silly_act_tricks/). Thank you for that amazing work!
 
-In fact, if you'd like to give my triggers a try, you'll first want to head over to that post for the detailled setup instructions and the script file, which includes the images that are also used by my trigger file. I hope reusing them is okay.
+In fact, if you'd like to give my healslut triggers a try, you'll first want to head over to that post for the detailled setup instructions and the script file, which includes the images that are also used by my trigger file. I hope reusing them is okay.
 
 So after seeing that post, I wanted to try adding some additional triggers that make things more interactive and came up with triggers to do the following:
 
