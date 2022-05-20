@@ -4,6 +4,8 @@ First, I have to say that this is very much based on and inspired by /u/Twilight
 
 In fact, if you'd like to give my healslut triggers a try, you'll first want to head over to that post for the detailled setup instructions and the script file, which includes the images that are also used by my trigger file. I hope reusing them is okay.
 
+Screenshot: https://github.com/HSTriggers/HS_FF14_ACT_Triggers/blob/main/HS_FF14_ACT_Triggers.png
+
 So after seeing that post, I wanted to try adding some additional triggers that make things more interactive and came up with triggers to do the following:
 
 * Restrict things so it only activates inside duties/dungeons
@@ -36,7 +38,7 @@ Except for the first point, it's very easy to enable and disable these functions
 
 **SETUP**
 
-Download this [Healslut.xml]([https://raw.githubusercontent.com/HSTriggers/HSTriggers/main/Healslut.xml](https://raw.githubusercontent.com/HSTriggers/HS_FF14_ACT_Triggers/main/Healslut.xml)) file and import it into Triggernometry. It assumes that /u/TwilightsHerald's script is unpacked to "C:\HS\" so you have "C:\HS\Background Spiral.gif", but you can also either search and replace the path inside the XML file or edit the path to the spiral on the "Start dungeon (EDIT SPIRAL PATH HERE)" trigger that will show up inside the Healslut folder in Triggernometry.
+Download this [Healslut.xml](https://raw.githubusercontent.com/HSTriggers/HS_FF14_ACT_Triggers/main/Healslut.xml) file and import it into Triggernometry. It assumes that /u/TwilightsHerald's script is unpacked to "C:\HS\" so you have "C:\HS\Background Spiral.gif", but you can also either search and replace the path inside the XML file or edit the path to the spiral on the "Start dungeon (EDIT SPIRAL PATH HERE)" trigger that will show up inside the Healslut folder in Triggernometry. Tick on the "Healslut" folder to enable the triggers.
 
 I modified the suggestions that are shown to use text auras to make them easier to change, but it doesn't look quite as nice as the images from the original script. You can switch it back to use the image version by ticking and unticking the triggers in the Healslut\Suggestions folder in Triggernometry. But if you use the image version, you might have to edit all the paths unless you unpacked the original script to "C:\HS\"!
 
